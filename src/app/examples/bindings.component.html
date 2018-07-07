@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <b>{{ heading }}</b>
+  {{ description }}
+  <div><b>Step</b> : {{ step }}</div>
+  <div><b>Date</b> : {{ currentDate | date }}</div>
+  <div><b>User</b> : {{ userinfo.name }}</div>
+
+  <div>
+      <b>Json Pipe</b>
+      <pre>{{ userinfo | json }} </pre>
+     
+  </div>
+
+</div>
