@@ -1,14 +1,25 @@
 <div class="container-fluid">
   <b>{{ heading }}</b>
   {{ description }}
-  <div><b>Step</b> : {{ step }}</div>
-  <div><b>Date</b> : {{ currentDate | date }}</div>
-  <div><b>User</b> : {{ userinfo.name }}</div>
+  <div>
+    <b>Step</b> : {{ step }}</div>
+  <div>
+    <b>Date</b> : {{ currentDate | date }}</div>
+  <div>
+    <b>User</b> : {{ userinfo.name }}</div>
 
   <div>
-      <b>Json Pipe</b>
-      <pre>{{ userinfo | json }} </pre>
-     
+    <b>Json Pipe</b>
+    <pre>{{ userinfo | json }} </pre>
+
   </div>
 
+  <h2>Property Binding</h2>
+  <div (mouseenter)="boxEvent()" (mouseleave)="msgclass='info'" id="box" [class]="msgclass"> Current Applied class is <b>{{ msgclass }}</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste asperiores nisi sunt. Quibusdam officiis at aperiam tempora?
+    Tempora inventore laboriosam modi cumque atque sit, nemo libero veritatis cum unde praesentium.</div>
+    <input type="text" [id]="'one'" [disabled]="flag"> {{flag}}
 </div>
+
+<h2>Event Binding</h2>
+
+  <button (click)="sayHello($event)">Say Hello</button>
