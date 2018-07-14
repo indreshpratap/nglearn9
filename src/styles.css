@@ -8,3 +8,19 @@
 .success {
     background-color:lightgreen;
 }
+
+.red-color {
+    color:red;
+}
+
+.height-300 {
+    height:300px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
