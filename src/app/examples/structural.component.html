@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <h4>Structural Example</h4>
+
+    <button (click)="toggle()">{{ show ? 'Hide':'Show' }}</button>
+    <div class="alert alert-info" *ngIf="show">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis explicabo officia asperiores perspiciatis magni facilis optio minus perferendis modi,
+         aspernatur ipsa dolore voluptatibus expedita, odit corporis mollitia nihil eaque reiciendis!
+    </div>
+
+    <div *ngIf="editing">
+        <input type="text" [(ngModel)]="todoInputItem"> <button (click)="addItem()">Save</button> <button (click)="editing=false">Cancel</button>
+        {{todoInputItem}}
+    </div>
+<div *ngIf="!editing">
+    <button (click)="openForm()">+</button>
+    <ul>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi id velit, eaque quis labore similique eius aliquam aliquid voluptatem incidunt ipsa ea commodi veniam reiciendis tempore. Et iusto facilis tenetur.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi id velit, eaque quis labore similique eius aliquam aliquid voluptatem incidunt ipsa ea commodi veniam reiciendis tempore. Et iusto facilis tenetur.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi id velit, eaque quis labore similique eius aliquam aliquid voluptatem incidunt ipsa ea commodi veniam reiciendis tempore. Et iusto facilis tenetur.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi id velit, eaque quis labore similique eius aliquam aliquid voluptatem incidunt ipsa ea commodi veniam reiciendis tempore. Et iusto facilis tenetur.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi id velit, eaque quis labore similique eius aliquam aliquid voluptatem incidunt ipsa ea commodi veniam reiciendis tempore. Et iusto facilis tenetur.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi id velit, eaque quis labore similique eius aliquam aliquid voluptatem incidunt ipsa ea commodi veniam reiciendis tempore. Et iusto facilis tenetur.</li>
+    </ul>
+    </div>
+
+    <ul>
+        <li *ngFor="let t of todos">{{t}}</li>
+    </ul>
+</div>
