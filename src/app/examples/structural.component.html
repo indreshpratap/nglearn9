@@ -23,7 +23,41 @@
     </ul>
     </div>
 
+    <b>Pending Todos</b>
     <ul>
-        <li *ngFor="let t of todos">{{t}}</li>
+        <li *ngFor="let t of todos;let todoIndx=index;let first= first;let l=last;let ev=even;let odd=odd;">
+            {{ todoIndx+1 }} - {{t}}
+        <span>First: {{ first }} Last: {{ l }} Even: {{ ev }} Odd: {{ odd }}</span>
+        <button (click)="done(todoIndx,t)">Done</button>
+        </li>
     </ul>
+
+    <b>Completed Todos</b>
+    <ul>
+        <li *ngFor="let t of doneTodos;let todoIndx=index;let first= first;let l=last;let ev=even;let odd=odd;">
+            {{ todoIndx+1 }} - {{t}}
+        <!-- <span>First: {{ first }} Last: {{ l }} Even: {{ ev }} Odd: {{ odd }}</span> -->
+        <button (click)="pending(todoIndx,t)">Pending</button>
+        </li>
+    </ul>
+
+<h3>Object based todos</h3>
+
+<button class="btn btn-primary" (click)="markDoneAllChecked()">Done</button>
+    <table class="table table-bordered">
+        <tbody>
+            <tr *ngFor="let ot of objTodos;">
+                <td>
+                    <!-- <input type="checkbox" (change)="ot.checked=!ot.checked"> -->
+                    <input type="checkbox" [(ngModel)]="ot.checked">
+
+                    {{ot.checked}}
+                </td>
+                <td [class.del]="ot.done">{{ ot.todo }}</td>
+                <td>
+                    <button (click)="ot.done=true">done</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
