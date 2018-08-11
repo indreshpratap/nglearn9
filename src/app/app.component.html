@@ -1,5 +1,7 @@
 <div class="container-fluid">
-  <app-header></app-header>
-<!-- <app-bindings></app-bindings> -->
-<app-structural></app-structural>
+  <app-header appTitle="Angular App"></app-header>
+  <button (click)="title='Angular App title'">Change</button>
+  <!-- <app-bindings></app-bindings> -->
+  <app-structural></app-structural>
+  <app-header [appTitle]="title"></app-header>
 </div>
