@@ -1,8 +1,15 @@
 <div class="container-fluid">
+<!-- <app-message [message]="mymessage" close="true"></app-message> -->
+
+<app-obj-message [value]="msgObj"></app-obj-message>
+
+
+<button (click)="setInfo()">Info</button>
+<button (click)="setWarning()">Warning</button>
     <h4>Structural Example</h4>
 
     <button (click)="toggle()">{{ show ? 'Hide':'Show' }}</button>
-    <div class="alert alert-info" *ngIf="show">
+    <div class="alert alert-primary" *ngIf="show">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis explicabo officia asperiores perspiciatis magni facilis optio minus perferendis modi,
          aspernatur ipsa dolore voluptatibus expedita, odit corporis mollitia nihil eaque reiciendis!
     </div>

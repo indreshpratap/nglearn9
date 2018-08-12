@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header.component';
 import { MenuComponent } from './components/menu.component';
 import { BindingsComponent } from './examples/bindings.component';
 import { StructuralComponent } from './examples/structural.component';
+import { AppMessageComponent } from './components/msg.component';
+import { AppObjMessageComponent } from './components/msg-obj.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { StructuralComponent } from './examples/structural.component';
     HeaderComponent,
     MenuComponent,
     BindingsComponent,
-    StructuralComponent
+    StructuralComponent,
+    AppMessageComponent,
+    AppObjMessageComponent
   ],
   imports: [
     BrowserModule,
