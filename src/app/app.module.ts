@@ -8,6 +8,8 @@ import { BindingsComponent } from './examples/bindings.component';
 import { StructuralComponent } from './examples/structural.component';
 import { AppMessageComponent } from './components/msg.component';
 import { AppObjMessageComponent } from './components/msg-obj.component';
+import { ConfirmComponent } from './components/confirm.component';
+import { YesNoPipe } from './pipes/yesno.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AppObjMessageComponent } from './components/msg-obj.component';
     BindingsComponent,
     StructuralComponent,
     AppMessageComponent,
-    AppObjMessageComponent
+    AppObjMessageComponent,
+    ConfirmComponent,
+    YesNoPipe
   ],
   imports: [
     BrowserModule,

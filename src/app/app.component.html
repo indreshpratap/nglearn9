@@ -5,4 +5,28 @@
   <app-structural></app-structural>
 
   <app-message message="end of example"></app-message>
+
+  Confirm example
+
+  <app-confirm (onYes)="doOnYes($event,'abc')" 
+  (onNo)="doOnNo($event)" 
+  (onCancel)="doOnCancel($event)" 
+  [confirmMessage]="profileMessage"></app-confirm>
+
+  Pipe example:
+  <div>
+    Activated : {{ activated | yesno:cap }}   {{ cap }}
+</div>
+<div>
+  One: {{ 1 | yesno }}
+
+</div>
+<div>
+  Chained pipes
+   Zero {{ 0 | yesno | lowercase | uppercase  }}
+  </div>
+
+  <div>
+    Date : {{ current | date:'MM yyyy' }}
+  </div>
 </div>
