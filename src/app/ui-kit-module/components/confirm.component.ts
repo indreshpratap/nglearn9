@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
-    selector: 'app-confirm',
+    selector: 'app-ui-confirm',
     template: `
     <div class="alert alert-warning" *ngIf="message">
         {{message}}

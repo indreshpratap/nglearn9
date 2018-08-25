@@ -8,10 +8,10 @@
 
   Confirm example
 
-  <app-confirm (onYes)="doOnYes($event,'abc')" 
+  <app-ui-confirm (onYes)="doOnYes($event,'abc')" 
   (onNo)="doOnNo($event)" 
   (onCancel)="doOnCancel($event)" 
-  [confirmMessage]="profileMessage"></app-confirm>
+  [confirmMessage]="profileMessage"></app-ui-confirm>
 
   Pipe example:
   <div>
@@ -29,4 +29,6 @@
   <div>
     Date : {{ current | date:'MM yyyy' }}
   </div>
+
+  <app-core-login></app-core-login>
 </div>
