@@ -1,17 +1,16 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { UIKitModule } from '../app-modules/ui-kit/uikit.module';
 
-import { containers, AppComponent } from './containers';
-import { RouterModule } from '@angular/router';
+import { declarations,AppComponent } from './containers';
 import { routes } from './app.routing';
 
 
-
 @NgModule({
-  declarations: [...containers],
+  declarations: declarations,
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -2,7 +2,7 @@ import { LoginComponent } from "./login/login.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { AppComponent } from "./app/app.component";
 
-export const containers = [
+export const declarations = [
     AppComponent,
     LoginComponent,
     RegistrationComponent

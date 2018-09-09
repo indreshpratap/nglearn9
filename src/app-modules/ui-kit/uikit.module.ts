@@ -9,10 +9,10 @@ import { pipes } from './pipes';
 
 @NgModule({
     declarations: [...components, ...pipes],
-    imports: [CommonModule, FormsModule, ...PRIMENG],
+    imports: [CommonModule,FormsModule, ...PRIMENG],
     exports: [
         CommonModule,
-        FormsModule,
+         FormsModule,
 
         ...PRIMENG,
 

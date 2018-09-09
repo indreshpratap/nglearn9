@@ -6,4 +6,10 @@ import { Component, OnInit } from '@angular/core';
   //  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  username;
+  password;
+
+  doLogin(){
+    console.log(this.username,this.password);
+  }
 }
