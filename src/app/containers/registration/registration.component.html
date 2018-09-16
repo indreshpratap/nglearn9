@@ -1,1 +1,60 @@
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dolore maxime error in autem harum necessitatibus fuga, quia animi aperiam nulla velit neque iure dolores distinctio sapiente quos incidunt praesentium.
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="card p-15">
+            <div class="card-body">
+                <h5 class="card-title">Register</h5>
+                <form #regform="ngForm" autocomplete="off"> {{regform}}
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required minlength="10" ngModel name="name" class="form-control"  placeholder="Enter name">
+               <div *ngIf="regform.controls['name']?.touched && regform.controls['name']?.errors">
+                   <span *ngIf="regform.controls['name'].errors['required']">Name is required</span>
+                   <span *ngIf="regform.controls['name'].errors['minlength']">Minimum 10 chars</span>
+               </div>
+
+               <!-- {{regform.controls['name']?.errors|json}} -->
+                </div>
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" [ngModel]="email" required minlength="15" #emailCtrl="ngModel" name="email" class="form-control"  placeholder="Enter email">
+                 <!-- {{email}} -->
+                 <div *ngIf="emailCtrl?.touched && emailCtrl?.errors">
+                        <span *ngIf="emailCtrl.errors['required']">Email is required</span>
+                        <span *ngIf="emailCtrl.errors['minlength']">Minimum 15 chars</span>
+                    </div>
+                    {{emailCtrl.errors|json}}
+                </div>
+                <div class="form-group">
+                    <label>Mobile</label>
+                    <input type="text" ngModel name="mobile" class="form-control"  placeholder="Enter mobile">
+                 
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input ngModel type="password" name="password" class="form-control"  placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input ngModel type="password" name="cnfpassword" class="form-control"  placeholder="Confirm Password">
+                </div>
+                <!-- [disabled]="regform.invalid" -->
+                <button type="submit"  class="btn btn-primary" (click)="doRegister(regform)">Register</button>
+                <button type="submit"  class="btn btn-secondary" (click)="toggleForm(regform)">Toggle</button>
+                <a class="float-right" routerLink="/">Existing User</a>
+                </form>
+
+                <pre>
+Valid: {{regform.valid}}
+Invalid: {{regform.invalid}}
+Pristine: {{regform.pristine}}
+Dirty: {{regform.dirty}}
+Touched: {{regform.touched}}
+
+Form Data:
+
+{{regform.value | json}}
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>
