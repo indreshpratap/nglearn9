@@ -1,1 +1,44 @@
-this is group
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card p-15">
+            <div class="card-body">
+                <h5 class="card-title">Group</h5>
+                <form [formGroup]="form">
+                    <div class="form-group">
+                        <label>Group Name</label>
+                        <input type="name"  formControlName="groupName"  class="form-control" placeholder="Enter email">
+                    <!-- {{form.get('groupName').errors|json}} -->
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" formControlName="description" class="form-control" placeholder="description">
+                    <!-- {{form.get('description').errors|json}} -->
+                    <div *ngIf="form.get('description').errors">
+                        <div *ngIf="form.get('description').errors['stringOnly']">only small and capital letters are allowed</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Accessability</label>
+                        <select class="form-control" formControlName="accessability">
+                            <option value="">Select</option>
+                            <option [ngValue]="1">Public</option>
+                            <option [ngValue]="2">Private</option>
+                            <option [ngValue]="3">Paid</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <input type="text" formControlName="tags" class="form-control" placeholder="Tags">
+                    </div>
+                    <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="saveGroup()">Save</button>
+                    <button  type="button" class="btn" (click)="fillIt()">Fill It</button>
+                    <button  type="button" class="btn" (click)="patchIt()">Partial Set Values</button>
+                </form>
+            </div>
+        </div>
+        <pre>
+            Valid : {{form.valid}}  , Invalid : {{form.invalid}}
+            {{form.value | json}}
+        </pre>
+    </div>
+</div>

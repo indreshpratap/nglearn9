@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: declarations,
-    imports: [UIKitModule, 
+    imports: [
+        UIKitModule,
         RouterModule.forChild(queMgrRoutes)
     ],
     exports: [],

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PRIMENG } from './primeng';
 
@@ -9,11 +9,11 @@ import { pipes } from './pipes';
 
 @NgModule({
     declarations: [...components, ...pipes],
-    imports: [CommonModule,FormsModule, ...PRIMENG],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, ...PRIMENG],
     exports: [
         CommonModule,
-         FormsModule,
-
+        FormsModule,
+        ReactiveFormsModule,
         ...PRIMENG,
 
         ...components,

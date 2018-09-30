@@ -24,3 +24,7 @@
 .italic {
     font-style: italic;
 }
+
+.ng-invalid:not(form) {
+    border:1px solid tomato;
+}

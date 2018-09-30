@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { UIKitModule } from '../../ui-kit/uikit.module';
+import { containers } from './containers';
+import { RouterModule } from '@angular/router';
+import { adminReportRoutes } from './admin-reports.routing';
 
 @NgModule({
-    declarations: [],
-    imports: [ CommonModule ],
+    declarations:containers,
+    imports: [ UIKitModule,
+         RouterModule.forChild(adminReportRoutes) ],
     exports: [],
     providers: [],
 })
