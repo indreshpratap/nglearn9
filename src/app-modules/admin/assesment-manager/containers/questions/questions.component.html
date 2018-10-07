@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card p-15">
+            <div class="card-body">
+                <h5 class="card-title">Group</h5>
+                <form [formGroup]="form">
+                    <div class="form-group">
+                        <label>Select Group</label>
+                        <select class="form-control" formControlName="group">
+                            <option value="">Select</option>
+                            <option [ngValue]="gr.id" *ngFor="let gr of groups">{{gr.label}}</option>
+
+                        </select>
+
+                    </div>
+                    <div formGroupName="question">
+
+
+                        <div class="form-group">
+                            <label>Question</label>
+                            <input type="text" formControlName="que" class="form-control" placeholder="Question">
+                        </div>
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-control" formControlName="type">
+                                <option value="">Select Type</option>
+                                <option [ngValue]="1">Single</option>
+                                <option [ngValue]="2">Multiple</option>
+                                <option [ngValue]="3">Descriptive</option>
+                            </select>
+                        </div>
+                        <div formArrayName="options">
+                            <div class="form-group" *ngFor="let opt of options.controls;let index=index" [formGroupName]="index">
+                                <label>Option {{index+1}}</label>
+                                <input type="text" formControlName="label" class="form-control" placeholder="Tags">
+                                <input type="checkbox" formControlName="isCorrect" class="form-control">
+                                <button (click)="removeOption(index)">remove</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="addOption()">Add Option</button>
+                    <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="save()">Save</button>
+
+                </form>
+            </div>
+        </div>
+        <pre>
+            Valid : {{form.valid}}  , Invalid : {{form.invalid}}
+            {{form.value | json}}
+        </pre>
+    </div>
+</div>

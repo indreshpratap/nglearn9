@@ -4,6 +4,7 @@ import { declarations } from './containers';
 import { UIKitModule } from '../../ui-kit/uikit.module';
 import { queMgrRoutes } from './assesment-manager.routing';
 import { RouterModule } from '@angular/router';
+import { AssesmentService } from './services/assesment.service';
 
 @NgModule({
     declarations: declarations,
@@ -12,6 +13,6 @@ import { RouterModule } from '@angular/router';
         RouterModule.forChild(queMgrRoutes)
     ],
     exports: [],
-    providers: [],
+    providers: [AssesmentService],
 })
 export class AssesmentManagerModule { }
