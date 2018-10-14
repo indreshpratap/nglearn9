@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-6" highlight="cyan">
         <div class="card p-15">
             <div class="card-body">
                 <h5 class="card-title">Group</h5>
@@ -41,4 +41,13 @@
             {{form.value | json}}
         </pre>
     </div>
+
+    <div [highlight]="bg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quis nesciunt, laudantium ullam, labore cumque reiciendis illum aperiam fugit quas velit
+        iste voluptates expedita dolores eveniet aliquam possimus doloremque nisi!
+    </div>
+
+    <p highlight width="100px" tooltip="this is my tooltip">
+        this is p tag
+    </p>
 </div>

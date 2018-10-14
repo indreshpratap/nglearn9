@@ -6,9 +6,10 @@ import { PRIMENG } from './primeng';
 
 import { components } from './components';
 import { pipes } from './pipes';
+import { directives } from './directives';
 
 @NgModule({
-    declarations: [...components, ...pipes],
+    declarations: [...components, ...pipes,...directives],
     imports: [CommonModule, FormsModule, ReactiveFormsModule, ...PRIMENG],
     exports: [
         CommonModule,
@@ -17,7 +18,8 @@ import { pipes } from './pipes';
         ...PRIMENG,
 
         ...components,
-        ...pipes
+        ...pipes,
+        ...directives
     ],
     providers: [],
 })
