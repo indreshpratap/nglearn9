@@ -1,5 +1,4 @@
 import { Directive, ElementRef, Input, HostListener, OnInit, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
-import { elementEnd } from '@angular/core/src/render3/instructions';
 
 @Directive({
     selector: '[highlight]' // attribute selector just like css
