@@ -1,53 +1,58 @@
-<div class="row justify-content-center">
-    <div class="col-6" highlight="cyan">
-        <div class="card p-15">
-            <div class="card-body">
-                <h5 class="card-title">Group</h5>
-                <form [formGroup]="form">
-                    <div class="form-group">
-                        <label>Group Name</label>
-                        <input type="name"  formControlName="groupName"  class="form-control" placeholder="Enter email">
-                    <!-- {{form.get('groupName').errors|json}} -->
+<app-page heading="Question Group">
+    <div class="row justify-content-center">
+        <div class="col-6" highlight="cyan" trackid="first">
+            <div class="card p-15">
+                <div class="card-body">
+                    <h5 class="card-title">Group</h5>
+                    <form [formGroup]="form">
+                        <div class="form-group">
+                            <label>Group Name</label>
+                            <input type="name" formControlName="groupName" class="form-control" placeholder="Enter email">
+                            <!-- {{form.get('groupName').errors|json}} -->
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" formControlName="description" class="form-control" placeholder="description">
+                            <!-- {{form.get('description').errors|json}} -->
+                            <div *ngIf="form.get('description').errors">
+                                <div *ngIf="form.get('description').errors['stringOnly']">only small and capital
+                                    letters are allowed</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Accessability</label>
+                            <select class="form-control" formControlName="accessability">
+                                <option value="">Select</option>
+                                <option [ngValue]="1">Public</option>
+                                <option [ngValue]="2">Private</option>
+                                <option [ngValue]="3">Paid</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tags</label>
+                            <input type="text" formControlName="tags" class="form-control" placeholder="Tags">
+                        </div>
+                        <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="saveGroup()">Save</button>
+                        <button type="button" class="btn" (click)="fillIt()">Fill It</button>
+                        <button type="button" class="btn" (click)="patchIt()">Partial Set Values</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <input type="text" formControlName="description" class="form-control" placeholder="description">
-                    <!-- {{form.get('description').errors|json}} -->
-                    <div *ngIf="form.get('description').errors">
-                        <div *ngIf="form.get('description').errors['stringOnly']">only small and capital letters are allowed</div>
-                    </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Accessability</label>
-                        <select class="form-control" formControlName="accessability">
-                            <option value="">Select</option>
-                            <option [ngValue]="1">Public</option>
-                            <option [ngValue]="2">Private</option>
-                            <option [ngValue]="3">Paid</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Tags</label>
-                        <input type="text" formControlName="tags" class="form-control" placeholder="Tags">
-                    </div>
-                    <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="saveGroup()">Save</button>
-                    <button  type="button" class="btn" (click)="fillIt()">Fill It</button>
-                    <button  type="button" class="btn" (click)="patchIt()">Partial Set Values</button>
-                </form>
             </div>
-        </div>
-        <pre>
+            <pre>
             Valid : {{form.valid}}  , Invalid : {{form.invalid}}
             {{form.value | json}}
         </pre>
-    </div>
+        </div>
 
-    <div [highlight]="bg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quis nesciunt, laudantium ullam, labore cumque reiciendis illum aperiam fugit quas velit
-        iste voluptates expedita dolores eveniet aliquam possimus doloremque nisi!
+        <div [highlight]="bg" trackid="box" [width]="boxWidth">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quis nesciunt, laudantium ullam, labore
+            cumque reiciendis illum aperiam fugit quas velit
+            iste voluptates expedita dolores eveniet aliquam possimus doloremque nisi!
+        </div>
+        <button class="btn btn-primary" (click)="bg = 'green';boxWidth='700px'">Green</button>
+        <button class="btn btn-primary" (click)="bg = 'blue'">Blue</button>
+        <p highlight width="100px" tooltip="this is my tooltip">
+            this is p tag
+        </p>
     </div>
-
-    <p highlight width="100px" tooltip="this is my tooltip">
-        this is p tag
-    </p>
-</div>
+</app-page>

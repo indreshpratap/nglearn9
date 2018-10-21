@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import '~bootstrap/dist/css/bootstrap.min.css'; */
 
+
+.top-header {
+    min-height: 50px;
+    background:rgb(225, 225, 226);
+    color:white;
+    margin-bottom: 5px;
+    line-height: 50px;
+}
+.top-header a {
+    margin-right: 10px;
+}
 .info {
     background-color:lightblue;
 }

@@ -1,15 +1,18 @@
-import { Directive, ElementRef, Input, HostListener, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, HostListener, OnInit, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
 import { elementEnd } from '@angular/core/src/render3/instructions';
 
 @Directive({
     selector: '[highlight]' // attribute selector just like css
 
 })
-export class HighlightDirective implements OnInit {
-   
+export class HighlightDirective implements OnInit, OnChanges, DoCheck {
+
+
+
 
     @Input("highlight") bgColor: string;
     @Input('width') width: string;
+    @Input() trackid: string;
 
     flag = false;
 
@@ -22,18 +25,11 @@ export class HighlightDirective implements OnInit {
     constructor(private element: ElementRef) {
         console.log('Element is:', element.nativeElement);
         //  this.hightlight();
-        console.log("Constructor bgcolor:",this.bgColor);
-        console.log("Constructor width:",this.width);
+        console.log("Constructor bgcolor:", this.bgColor);
+        console.log("Constructor width:", this.width);
 
     }
 
- ngOnInit(): void {
-    console.log("oninit bgcolor:",this.bgColor);
-    console.log("oninit width:",this.width);
-    }
-    applyBackground(color) {
-        this.element.nativeElement.style.backgroundColor = color;
-    }
 
     @HostListener("mouseenter")
     hightLightTag() {
@@ -52,5 +48,30 @@ export class HighlightDirective implements OnInit {
             this.flag = !this.flag;
         }
     }
+
+    ngDoCheck(): void {
+        console.log("Do check", this.trackid);
+    }
+
+    //
+    ngOnChanges(changes: SimpleChanges): void {
+        console.log(this.trackid, "On changes for track id:", changes);
+        if (changes['bgColor']) {
+            console.log("Changed in bgColor");
+        }
+        if (changes['width']) {
+            let w = changes['width'];
+            console.log("changes in width", w.currentValue, w.firstChange, w.previousValue);
+        }
+    }
+
+    ngOnInit(): void {
+        console.log(this.trackid, "oninit bgcolor:", this.bgColor);
+        console.log(this.trackid, "oninit width:", this.width);
+    }
+    applyBackground(color) {
+        this.element.nativeElement.style.backgroundColor = color;
+    }
+
 
 }

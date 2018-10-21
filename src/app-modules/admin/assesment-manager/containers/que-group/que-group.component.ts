@@ -11,6 +11,7 @@ export class AdminQueGroupComponent implements OnInit, OnDestroy {
 
     form: FormGroup;
     bg = 'lightgray';
+    boxWidth='600px';
 
     constructor() {
         this.prepareForm();

@@ -1,0 +1,14 @@
+.page-header {
+    border:1px solid lightgray;
+    padding:5px;
+    position: sticky;
+    top:0;
+    background:white;
+    z-index: 10000;
+
+}
+
+.page-content {
+    border:1px solid lightgray;
+    padding:1rem;
+}
