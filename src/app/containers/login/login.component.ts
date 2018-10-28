@@ -10,6 +10,11 @@ export class LoginComponent {
   password;
 
   doLogin(){
-    console.log(this.username,this.password);
+    alert(this.username+this.password);
   }
+clearAll(){
+  this.username = null;
+  this.password = null;
+}
+
 }
