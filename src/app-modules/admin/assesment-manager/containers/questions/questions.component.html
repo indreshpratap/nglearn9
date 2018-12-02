@@ -8,7 +8,7 @@
                         <label>Select Group</label>
                         <select class="form-control" formControlName="group">
                             <option value="">Select</option>
-                            <option [ngValue]="gr.id" *ngFor="let gr of groups">{{gr.label}}</option>
+                            <option [ngValue]="gr._id" *ngFor="let gr of groups">{{gr.groupName}}</option>
 
                         </select>
 

@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from '../../../../shared/custom.validators';
+import { ApiClient } from 'src/app-modules/shared/api.client';
+import { AssesmentService } from '../../services/assesment.service';
 
 @Component({
     selector: 'app-adm-que-group',
@@ -11,21 +13,44 @@ export class AdminQueGroupComponent implements OnInit, OnDestroy {
 
     form: FormGroup;
     bg = 'lightgray';
-    boxWidth='600px';
+    boxWidth = '600px';
+    groups;
 
-    constructor() {
+
+    constructor(private assesmentService: AssesmentService, private api: ApiClient) {
         this.prepareForm();
         // this.patchIt();
     }
 
+
+
     ngOnInit(): void {
         console.log("question group oninit");
+
+        this.getGroups();
+        this.fetchFromXyz();
     }
     ngOnDestroy(): void {
         console.log("question group ondestroy");
 
     }
 
+
+    getGroups() {
+        this.assesmentService.getGroups()
+            .subscribe(data => this.groups = data,
+                (err) => {
+                    console.warn(err);
+                    alert('Failed to fetch groups');
+                }
+            );
+    }
+
+    fetchFromXyz() {
+        this.api.fetchFromXyz('posts').subscribe(res => {
+            console.log(res);
+        })
+    }
     prepareForm() {
         this.form = new FormGroup({
             groupName: new FormControl(null, [Validators.required, Validators.minLength(5), CustomValidators.stringOnly]),
@@ -37,6 +62,19 @@ export class AdminQueGroupComponent implements OnInit, OnDestroy {
 
     saveGroup() {
         console.log(this.form.value);
+
+        if (this.form.valid) {
+            let data = this.form.value;
+            this.assesmentService.saveGroup(data)
+                .subscribe(data => {
+                    if (data.status) {
+                        alert('Group Saved');
+                        this.form.reset();
+                        this.getGroups();
+                    }
+                })
+
+        }
 
     }
 

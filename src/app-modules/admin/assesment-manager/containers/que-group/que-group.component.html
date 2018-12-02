@@ -1,13 +1,13 @@
 <app-page heading="Question Group">
     <div class="row justify-content-center">
-        <div class="col-6" highlight="cyan" trackid="first">
+        <div class="col-6" trackid="first">
             <div class="card p-15">
                 <div class="card-body">
                     <h5 class="card-title">Group</h5>
                     <form [formGroup]="form">
                         <div class="form-group">
                             <label>Group Name</label>
-                            <input type="name" formControlName="groupName" class="form-control" placeholder="Enter email">
+                            <input type="name" formControlName="groupName" class="form-control" placeholder="Enter Name">
                             <!-- {{form.get('groupName').errors|json}} -->
                         </div>
                         <div class="form-group">
@@ -44,6 +44,41 @@
         </pre>
         </div>
 
+
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>No.</td>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td>Accessability</td>
+                        <td>Created Date</td>
+                        <td>Tags</td>
+                        <td>Status</td>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let group of groups;let indx = index;">
+                        <td> {{ indx+1 }}</td>
+                        <td> {{group._id}}</td>
+                        <td> {{group.groupName}}</td>
+                        <td> {{group.description}}</td>
+                        <td> {{group.accessability}}</td>
+                        <td> {{group.created_date | date:'medium'}}</td>
+                        <td> {{group.tags}}</td>
+                        <td> {{group.active}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Commented previous hightlight directive example
         <div [highlight]="bg" trackid="box" [width]="boxWidth">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quis nesciunt, laudantium ullam, labore
             cumque reiciendis illum aperiam fugit quas velit
@@ -59,6 +94,6 @@
             this is box
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ad, cum ex iste aspernatur hic ipsum corrupti
             alias ut esse temporibus eaque, rem tenetur. Sit sed maiores sapiente rem voluptatum.
-        </div>
+        </div> -->
     </div>
 </app-page>

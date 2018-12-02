@@ -18,13 +18,14 @@ export class AdminQuestionsComponent {
     constructor(
         private currentRoute: ActivatedRoute,
         private fb: FormBuilder,
-        private assesmentService: AssesmentService
+        private assesmentService: AssesmentService,
+
     ) {
 
         console.log(this.currentRoute.component);
 
         //  let assesmentService = new AssesmentService();
-        this.groups = assesmentService.getGroups();
+        assesmentService.getGroups().subscribe(data => this.groups = data);
         this.prepareForm();
         // this.patchIt();
     }
@@ -36,10 +37,10 @@ export class AdminQuestionsComponent {
 
         // then master form
         this.form = this.fb.group({
-            group: ['value', [Validators.required]], // a form control
+            group: ['', [Validators.required]], // a form control
             question: this.fb.group({
                 que: [],
-                type: [],
+                type: [1],
                 options: this.options
 
             })
@@ -61,6 +62,13 @@ export class AdminQuestionsComponent {
 
     save() {
         console.log(this.form);
+
+        this.assesmentService.saveQuestion(this.form.value).subscribe(res=>{
+            if(res.status){
+                alert('Question saved');
+                this.form.reset();
+            }
+        })
         //  this.assesmentService.getGroups();
 
     }
