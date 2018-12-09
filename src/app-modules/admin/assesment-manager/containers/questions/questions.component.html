@@ -9,7 +9,6 @@
                         <select class="form-control" formControlName="group">
                             <option value="">Select</option>
                             <option [ngValue]="gr._id" *ngFor="let gr of groups">{{gr.groupName}}</option>
-
                         </select>
 
                     </div>
@@ -29,17 +28,19 @@
                                 <option [ngValue]="3">Descriptive</option>
                             </select>
                         </div>
-                        <div formArrayName="options">
-                            <div class="form-group" *ngFor="let opt of options.controls;let index=index" [formGroupName]="index">
-                                <label>Option {{index+1}}</label>
-                                <input type="text" formControlName="label" class="form-control" placeholder="Tags">
-                                <input type="checkbox" formControlName="isCorrect" class="form-control">
-                                <button (click)="removeOption(index)">remove</button>
-                            </div>
+                        <table class="table">
+                            <tbody formArrayName="options">
+                                <tr *ngFor="let opt of options.controls;let index=index" [formGroupName]="index">
+                                    <td> <label>Option {{index+1}}</label></td>
+                                    <td> <input type="text" formControlName="label" class="form-control" placeholder="Tags"></td>
+                                    <td> <input type="checkbox" formControlName="isCorrect" class="form-control"></td>
+                                    <td> <button (click)="removeOption(index)">remove</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                         </div>
-
-                    </div>
                     <button type="button" class="btn btn-primary" (click)="addOption()">Add Option</button>
+                    
                     <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (click)="save()">Save</button>
 
                 </form>

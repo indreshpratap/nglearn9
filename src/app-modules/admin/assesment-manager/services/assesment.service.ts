@@ -23,6 +23,10 @@ export class AssesmentService {
         return this.api.post('admin/register-question', data);
     }
 
+    getQuestions(groupId) {
+        return this.api.fetch('admin/get-questions/'+groupId);
+    }
+
 
 
 }

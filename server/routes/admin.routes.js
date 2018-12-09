@@ -53,7 +53,7 @@ admin.get('/get-questions/:groupId', (req, res) => {
     let groupId = req.params.groupId;
 
 
-    db.batch.find({groupId:groupId}, (err, batch) => {
+    db.questions.find({group:groupId}, (err, batch) => {
         if (err) return ERROR(res, err);
         OK(res, batch);
     });

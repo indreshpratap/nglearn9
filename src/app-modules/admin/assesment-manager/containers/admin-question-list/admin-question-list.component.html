@@ -1,0 +1,59 @@
+<app-page heading="Question List">
+  <div class="row justify-content-center">
+      <div class="col-12">
+          <div class="card p-15">
+              <div class="card-body">
+                <div>
+                  Select Group :
+                   <!-- <select class="form-control" #groupSel (change)="getQuestions(groupSel)"> -->
+                   <select class="form-control" [formControl]="groupSelCtrl" (change)="getQuestions()">
+                      <option value="">Select</option>
+                      <option [value]="gr._id" *ngFor="let gr of groups">{{gr.groupName}}</option>
+                  </select>
+                  <button (click)="reset()">clear</button>
+                </div>
+                  <h5 class="card-title">Questions</h5>
+                  <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>No.</td>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Accessability</td>
+                            <td>Created Date</td>
+                            <td>Tags</td>
+                            <td>Status</td>
+                        </tr>
+      
+                    </thead>
+      
+                    <tbody *ngIf="questions">
+                        <tr *ngFor="let group of questions;let indx = index;">
+                            <td> {{ indx+1 }}</td>
+                            <td> {{group._id}}</td>
+                            <td> {{group.groupName}}</td>
+                            <td> {{group.description}}</td>
+                            <td> {{group.accessability}}</td>
+                            <td> {{group.created_date | date:'medium'}}</td>
+                            <td> {{group.tags}}</td>
+                            <td> {{group.active}}</td>
+      
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+          </div>
+          <pre>
+
+      </pre>
+      </div>
+
+
+      <div>
+
+      </div>
+
+
+  </div>
+</app-page>

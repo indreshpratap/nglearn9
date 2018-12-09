@@ -22,7 +22,8 @@ import { ApiClient } from 'src/app-modules/shared/api.client';
     HttpClientModule
   ],
   providers: [ApiClient],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 
 
 })

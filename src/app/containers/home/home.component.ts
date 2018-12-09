@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-home',
     template: `<div class="top-header"><a routerLink="/admin/assesment/group">Group</a>
     <a routerLink="/admin/assesment/questions">Questions</a>
+    <a routerLink="/admin/assesment/questions-list">Question List</a>
     <a routerLink="/admin/reports/daily">Daily Reports</a>
     </div>
     <router-outlet></router-outlet>
