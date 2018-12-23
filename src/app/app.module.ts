@@ -9,6 +9,7 @@ import { UIKitModule } from '../app-modules/ui-kit/uikit.module';
 import { declarations,AppComponent } from './containers';
 import { routes } from './app.routing';
 import { ApiClient } from 'src/app-modules/shared/api.client';
+import { AuthGuard } from 'src/app-modules/shared/guards/auth.guard';
 
 
 
@@ -21,7 +22,7 @@ import { ApiClient } from 'src/app-modules/shared/api.client';
     UIKitModule,
     HttpClientModule
   ],
-  providers: [ApiClient],
+  providers: [ApiClient,AuthGuard],
   bootstrap: [AppComponent],
   
 

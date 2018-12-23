@@ -19,26 +19,19 @@
                             <td>No.</td>
                             <td>ID</td>
                             <td>Name</td>
-                            <td>Description</td>
-                            <td>Accessability</td>
-                            <td>Created Date</td>
-                            <td>Tags</td>
-                            <td>Status</td>
+                            <td>Group Id</td>
+                            <td>#</td>
                         </tr>
-      
                     </thead>
-      
                     <tbody *ngIf="questions">
-                        <tr *ngFor="let group of questions;let indx = index;">
+                        <tr *ngFor="let q of questions;let indx = index;">
                             <td> {{ indx+1 }}</td>
-                            <td> {{group._id}}</td>
-                            <td> {{group.groupName}}</td>
-                            <td> {{group.description}}</td>
-                            <td> {{group.accessability}}</td>
-                            <td> {{group.created_date | date:'medium'}}</td>
-                            <td> {{group.tags}}</td>
-                            <td> {{group.active}}</td>
-      
+                            <td> {{q._id}}</td>
+                            <td> {{q.question.que}}</td>
+                            <td> {{q.group}}</td>
+<td>
+    <a [routerLink]="['../question-edit',q._id,q.group]">Edit</a>
+</td>
                         </tr>
                     </tbody>
                 </table>
